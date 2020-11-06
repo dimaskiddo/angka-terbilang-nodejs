@@ -1,4 +1,4 @@
-const angka = require('../index.min')
+const angka = require('..')
 const readline = require("readline")
 
 const reader = readline.createInterface({

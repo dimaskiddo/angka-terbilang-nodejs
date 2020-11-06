@@ -12,8 +12,11 @@ function toTerbilang(angka) {
   let strAngka = String(angka).trim()
   let lenAngka = strAngka.length - 1
 
+  // Set Counter Nol
+  let cntZero = 0
+
   // Loop Angka String dan Konversi
-  for (let i=0; i <= lenAngka; i++) {
+  for (let i=0; i <= lenAngka; i++) {    
     // Cari Posisi Digit
     let posDigit = lenAngka - i
     let grpDigit = posDigit % 3
@@ -60,13 +63,13 @@ function toTerbilang(angka) {
             break
 
           case 0:
-            if (i == lenAngka || lenAngka > 4) {
-              // Proses Satu
-              resTerbilang += arrAngka[intAngka] + ' '
-            } else {
+            if ((intAngka == 1 && posDigit == 3) && (cntZero == 2 || lenAngka == 3)) {
               // Proses Seribu
               resTerbilang += 'seribu '
               continue
+            } else {
+              // Proses Satu
+              resTerbilang += arrAngka[intAngka] + ' '
             }
         }
         break
@@ -76,7 +79,8 @@ function toTerbilang(angka) {
           // Proses Nol
           return 'nol'
         }
-        continue
+        cntZero++
+        break
       
       default:
         // Proses Angka
@@ -98,7 +102,12 @@ function toTerbilang(angka) {
 
     // Proses Satuan
     if (grpDigit == 0) {
-      resTerbilang += arrSatuan[posDigit/3] + ' '
+      if (cntZero != 3) {
+       resTerbilang += arrSatuan[posDigit/3] + ' '
+      }
+
+      // Reset Counter Nol
+      cntZero = 0
     }
   }
 
