@@ -1,0 +1,31 @@
+{
+  "name": "@dimaskiddo/angka-terbilang-nodejs",
+  "version": "1.0.0",
+  "description": "Angka Terbilang NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -t [ babelify --presets [ @babel/preset-env ] ] -t uglifyify index.js --standalone angkaTerbilang > index.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimaskiddo/angka-terbilang-nodejs.git"
+  },
+  "keywords": [
+    "Angka",
+    "Terbilang",
+    "NodeJS"
+  ],
+  "author": "Dimas Restu Hidayanto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dimaskiddo/angka-terbilang-nodejs/issues"
+  },
+  "homepage": "https://github.com/dimaskiddo/angka-terbilang-nodejs#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "uglifyify": "^5.0.2"
+  }
+}

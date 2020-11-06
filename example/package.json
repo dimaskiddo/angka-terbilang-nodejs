@@ -1,0 +1,25 @@
+{
+  "name": "angka-terbilang-nodejs-example",
+  "version": "1.0.0",
+  "description": "Angka Terbilang NodeJS Example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimaskiddo/angka-terbilang-nodejs.git"
+  },
+  "keywords": [
+    "Angka",
+    "Terbilang",
+    "NodeJS",
+    "Example"
+  ],
+  "author": "Dimas Restu Hidayanto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dimaskiddo/angka-terbilang-nodejs/issues"
+  },
+  "homepage": "https://github.com/dimaskiddo/angka-terbilang-nodejs#readme"
+}
