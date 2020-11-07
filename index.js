@@ -2,13 +2,16 @@
 const arrAngka =  ['', 'satu', 'dua', 'tiga', 'empat', 'lima', 'enam', 'tujuh', 'delapan', 'sembilan']
 const arrSatuan = ['', 'ribu', 'juta', 'milyar', 'triliun', 'quadriliun', 'quintiliun', 'sextiliun', 'septiliun', 'oktiliun', 'noniliun', 'desiliun', 'undesiliun', 'duodesiliun', 'tredesiliun', 'quattuordesiliun', 'quindesiliun', 'sexdesiliun', 'septendesiliun', 'oktodesiliun', 'novemdesiliun', 'vigintiliun']
 
+// Hitung Panjang Array Satuan
+const lenSatuan = arrSatuan.length - 1
+
 // toTerbilang Function
 function toTerbilang(angka) {
   // Definisi Variabel Hasil Konversi Terbilang
   let resTerbilang = ''
 
   // Trim Inputan Angka
-	// dan Cari Panjang Angka String
+  // dan Cari Panjang Angka String
   let strAngka = String(angka).trim()
   let lenAngka = strAngka.length - 1
 
@@ -66,6 +69,9 @@ function toTerbilang(angka) {
             if ((intAngka == 1 && posDigit == 3) && (cntZero == 2 || lenAngka == 3)) {
               // Proses Seribu
               resTerbilang += 'seribu '
+
+              // Reset Penghitung Nol
+              cntZero = 0
               continue
             } else {
               // Proses Satu
@@ -79,6 +85,8 @@ function toTerbilang(angka) {
           // Proses Nol
           return 'nol'
         }
+
+        // Hitung Nol
         cntZero++
         break
       
@@ -103,10 +111,20 @@ function toTerbilang(angka) {
     // Proses Satuan
     if (grpDigit == 0) {
       if (cntZero != 3) {
-       resTerbilang += arrSatuan[posDigit/3] + ' '
+        // Cari Posisi Satuan
+        let posSatuan = posDigit / 3
+
+        // Pastikan Satuan Tidak Out of Bound dari Array Satuan
+        if (posSatuan > lenSatuan) { 
+          // Kurangi Posisi Satuan dengan Panjangan Array Satuan
+          // Sehinga Menggunakan Satuan Awal
+          posSatuan -= lenSatuan
+        }
+
+        resTerbilang += arrSatuan[posSatuan] + ' '
       }
 
-      // Reset Counter Nol
+      // Reset Pneghitung Nol
       cntZero = 0
     }
   }
