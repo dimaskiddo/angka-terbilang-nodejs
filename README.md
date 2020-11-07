@@ -41,12 +41,38 @@ const angka = require('@dimaskiddo/angka-terbilang-nodejs')
 console.log(angka.toTerbilang('123'))
 ```
 
-## Running The Tests
+### Example Usage for in Browser Javascript
+
+Below is the example of using for in Browser Javascript:
+```html
+<script src="https://unpkg.com/@dimaskiddo/angka-terbilang-nodejs/index.min.js"></script>
+console.log(angka.toTerbilang('123'))
+```
+
+## Development
+
+### Editing
+
+* Clone this repository in to your local computer
+```sh
+git clone -b master https://github.com/dimaskiddo/angka-terbilang-nodejs.git
+```
+* Edit `index.js` file in the root of cloned repository directory
+
+### Running The Tests
 
 To run the test you can run the following command
 
 ```sh
 npm run test
+```
+
+### Rebuilding
+
+After editing you also need to rebuild the minified and browser javascript version by running the following command
+
+```sh
+npm run build
 ```
 
 ## Built With

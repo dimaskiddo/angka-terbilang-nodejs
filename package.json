@@ -1,10 +1,10 @@
 {
   "name": "@dimaskiddo/angka-terbilang-nodejs",
-  "version": "1.0.3",
-  "description": "Angka Terbilang NodeJS",
+  "version": "1.0.4",
+  "description": "Angka Terbilang in NodeJS for Converting Decimal to an Indonesian Wording format",
   "main": "index.js",
   "scripts": {
-    "build": "browserify -t [ babelify --presets [ @babel/preset-env ] ] -t uglifyify index.js --standalone angkaTerbilang > index.min.js",
+    "build": "browserify -t [ babelify --presets [ @babel/preset-env ] ] -t uglifyify index.js --standalone angka > index.min.js",
     "test": "jest"
   },
   "repository": {
@@ -14,7 +14,12 @@
   "keywords": [
     "Angka",
     "Terbilang",
-    "NodeJS"
+    "NodeJS",
+    "Convertion",
+    "Decimal",
+    "Indonesia",
+    "Indonesian",
+    "Wording"
   ],
   "author": "Dimas Restu Hidayanto",
   "license": "MIT",

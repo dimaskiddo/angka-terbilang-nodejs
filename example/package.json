@@ -1,7 +1,7 @@
 {
   "name": "angka-terbilang-nodejs-example",
   "version": "1.0.0",
-  "description": "Angka Terbilang NodeJS Example",
+  "description": "Angka Terbilang in NodeJS Example",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

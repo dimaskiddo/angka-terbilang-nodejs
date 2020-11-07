@@ -108,19 +108,20 @@ function toTerbilang(angka) {
         break
     }
 
-    // Proses Satuan
+    // Konversi Satuan
     if (grpDigit == 0) {
-      if (cntZero != 3) {
-        // Cari Posisi Satuan
-        let posSatuan = posDigit / 3
+      // Cari Posisi Satuan
+      let posSatuan = posDigit / 3
 
-        // Pastikan Satuan Tidak Out of Bound dari Array Satuan
-        if (posSatuan > lenSatuan) { 
-          // Kurangi Posisi Satuan dengan Panjangan Array Satuan
-          // Sehinga Menggunakan Satuan Awal
-          posSatuan %= lenSatuan
-        }
+      // Pastikan Satuan Tidak Out of Bound dari Array Satuan
+      if (posSatuan > lenSatuan) { 
+        // Kurangi Posisi Satuan dengan Panjangan Array Satuan
+        // Sehinga Menggunakan Satuan Awal
+        posSatuan %= lenSatuan
+      }
 
+      if (cntZero < 3 || (cntZero == 3 && posSatuan == lenSatuan)) {
+        // Proses Satuan
         resTerbilang += arrSatuan[posSatuan] + ' '
       }
 
