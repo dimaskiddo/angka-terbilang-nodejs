@@ -29,7 +29,7 @@ const angka = require('@dimaskiddo/angka-terbilang-nodejs')
 * Use ToTerbilang function to convert your decimal string
 ```js
 ...
-  console.log(angka.toTerbilang('123'))
+console.log(angka.toTerbilang('123'))
 ...
 ```
 
@@ -43,7 +43,11 @@ console.log(angka.toTerbilang('123'))
 
 ## Running The Tests
 
-Currently the test is not ready yet :)
+To run the test you can run the following command
+
+```sh
+npm run test
+```
 
 ## Built With
 

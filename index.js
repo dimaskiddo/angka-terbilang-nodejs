@@ -118,7 +118,7 @@ function toTerbilang(angka) {
         if (posSatuan > lenSatuan) { 
           // Kurangi Posisi Satuan dengan Panjangan Array Satuan
           // Sehinga Menggunakan Satuan Awal
-          posSatuan -= lenSatuan
+          posSatuan %= lenSatuan
         }
 
         resTerbilang += arrSatuan[posSatuan] + ' '
