@@ -90,7 +90,7 @@ Benchmark tools are provided by [Develoka Team](https://github.com/develoka)
 Benchmark @ November 8th 2020 14:55
 | Package                                  | Angka Ratusan Ribu | Angka Ratusan Juta | Angka Ratusan Milyar | Angka Ratusan Triliun |
 | ---------------------------------------- | ------------------ | ------------------ | -------------------- | --------------------- |
-| [@dimasKiddo/angka-terbilang-nodejs](https://github.com/dimaskiddo/angka-terbilang-nodejs) | 2,836,662 ops/sec  | 2,029,144 ops/sec  | 1,386,470 ops/sec    | 1,095,911 ops/sec     |
+| [@dimaskiddo/angka-terbilang-nodejs](https://github.com/dimaskiddo/angka-terbilang-nodejs) | 2,836,662 ops/sec  | 2,029,144 ops/sec  | 1,386,470 ops/sec    | 1,095,911 ops/sec     |
 | [@develoka/angka-terbilang-js](https://github.com/develoka/angka-terbilang-js) | 2,385,251 ops/sec  | 1,832,777 ops/sec  | 1,371,450 ops/sec    | 1,085,423 ops/sec     |
 | [dikyarga/angka-menjadi-terbilang](https://github.com/dikyarga/angka-menjadi-terbilang) | 113,920 ops/sec    | 97,849 ops/sec     | 85,656 ops/sec       | 75,029 ops/sec        |
 | [BosNaufal/terbilang-js](https://github.com/BosNaufal/terbilang-js) | 194,925 ops/sec    | 133,416 ops/sec    | 76,289 ops/sec       | 47,955 ops/sec        |
