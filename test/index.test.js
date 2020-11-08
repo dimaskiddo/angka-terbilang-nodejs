@@ -1,5 +1,9 @@
 const angka = require("..");
 
+test('nol', () => {
+  expect(angka.toTerbilang('0')).toBe("nol");
+});
+
 test('belasan', () => {
   expect(angka.toTerbilang('11000')).toBe("sebelas ribu");
   expect(angka.toTerbilang('10000')).toBe("sepuluh ribu");
@@ -10,6 +14,15 @@ test('belasan', () => {
   expect(angka.toTerbilang('16915')).toBe("enam belas ribu sembilan ratus lima belas");
   expect(angka.toTerbilang('1017911')).toBe("satu juta tujuh belas ribu sembilan ratus sebelas");
   expect(angka.toTerbilang('110011')).toBe("seratus sepuluh ribu sebelas");
+});
+
+test('ribuan-satu-ribu', () => {
+  expect(angka.toTerbilang('1000')).toBe("seribu");
+  expect(angka.toTerbilang('21000')).toBe("dua puluh satu ribu");
+  expect(angka.toTerbilang('201000')).toBe("dua ratus satu ribu");
+  expect(angka.toTerbilang('2001000')).toBe("dua juta seribu");
+  expect(angka.toTerbilang('20001000')).toBe("dua puluh juta seribu");
+  expect(angka.toTerbilang('200001000')).toBe("dua ratus juta seribu");
 });
 
 test('jutaan', () => {
@@ -27,9 +40,6 @@ test('big-number', () => {
   expect(angka.toTerbilang('1000200001000000001')).toBe("satu quintiliun dua ratus triliun satu milyar satu");
   expect(angka.toTerbilang('9885888242291758493761')).toBe("sembilan sextiliun delapan ratus delapan puluh lima quintiliun delapan ratus delapan puluh delapan quadriliun dua ratus empat puluh dua triliun dua ratus sembilan puluh satu milyar tujuh ratus lima puluh delapan juta empat ratus sembilan puluh tiga ribu tujuh ratus enam puluh satu");
   expect(angka.toTerbilang('700960052123456600111229373574356912338626529885888242291758493761')).toBe("tujuh ratus vigintiliun sembilan ratus enam puluh novemdesiliun lima puluh dua oktodesiliun seratus dua puluh tiga septendesiliun empat ratus lima puluh enam sexdesiliun enam ratus quindesiliun seratus sebelas quattuordesiliun dua ratus dua puluh sembilan tredesiliun tiga ratus tujuh puluh tiga duodesiliun lima ratus tujuh puluh empat undesiliun tiga ratus lima puluh enam desiliun sembilan ratus dua belas noniliun tiga ratus tiga puluh delapan oktiliun enam ratus dua puluh enam septiliun lima ratus dua puluh sembilan sextiliun delapan ratus delapan puluh lima quintiliun delapan ratus delapan puluh delapan quadriliun dua ratus empat puluh dua triliun dua ratus sembilan puluh satu milyar tujuh ratus lima puluh delapan juta empat ratus sembilan puluh tiga ribu tujuh ratus enam puluh satu");
-  expect(angka.toTerbilang('70096005212345660011122937357435691233862652988588824229175849376100')).toBe("tujuh puluh ribu sembilan puluh enam vigintiliun lima novemdesiliun dua ratus dua belas oktodesiliun tiga ratus empat puluh lima septendesiliun enam ratus enam puluh sexdesiliun sebelas quindesiliun seratus dua puluh dua quattuordesiliun sembilan ratus tiga puluh tujuh tredesiliun tiga ratus lima puluh tujuh duodesiliun empat ratus tiga puluh lima undesiliun enam ratus sembilan puluh satu desiliun dua ratus tiga puluh tiga noniliun delapan ratus enam puluh dua oktiliun enam ratus lima puluh dua septiliun sembilan ratus delapan puluh delapan sextiliun lima ratus delapan puluh delapan quintiliun delapan ratus dua puluh empat quadriliun dua ratus dua puluh sembilan triliun seratus tujuh puluh lima milyar delapan ratus empat puluh sembilan juta tiga ratus tujuh puluh enam ribu seratus");
-  expect(angka.toTerbilang('7009600521234566001112293735743569123386265298858882422917584937610000')).toBe("tujuh juta sembilan ribu enam ratus vigintiliun lima ratus dua puluh satu novemdesiliun dua ratus tiga puluh empat oktodesiliun lima ratus enam puluh enam septendesiliun satu sexdesiliun seratus dua belas quindesiliun dua ratus sembilan puluh tiga quattuordesiliun tujuh ratus tiga puluh lima tredesiliun tujuh ratus empat puluh tiga duodesiliun lima ratus enam puluh sembilan undesiliun seratus dua puluh tiga desiliun tiga ratus delapan puluh enam noniliun dua ratus enam puluh lima oktiliun dua ratus sembilan puluh delapan septiliun delapan ratus lima puluh delapan sextiliun delapan ratus delapan puluh dua quintiliun empat ratus dua puluh dua quadriliun sembilan ratus tujuh belas triliun lima ratus delapan puluh empat milyar sembilan ratus tiga puluh tujuh juta enam ratus sepuluh ribu");
-  expect(angka.toTerbilang('700960052123456600111229373574356912338626529885888242291758493761000010')).toBe("tujuh ratus juta sembilan ratus enam puluh ribu lima puluh dua vigintiliun seratus dua puluh tiga novemdesiliun empat ratus lima puluh enam oktodesiliun enam ratus septendesiliun seratus sebelas sexdesiliun dua ratus dua puluh sembilan quindesiliun tiga ratus tujuh puluh tiga quattuordesiliun lima ratus tujuh puluh empat tredesiliun tiga ratus lima puluh enam duodesiliun sembilan ratus dua belas undesiliun tiga ratus tiga puluh delapan desiliun enam ratus dua puluh enam noniliun lima ratus dua puluh sembilan oktiliun delapan ratus delapan puluh lima septiliun delapan ratus delapan puluh delapan sextiliun dua ratus empat puluh dua quintiliun dua ratus sembilan puluh satu quadriliun tujuh ratus lima puluh delapan triliun empat ratus sembilan puluh tiga milyar tujuh ratus enam puluh satu juta sepuluh");
 });
 
 test('all-zero', () => {
@@ -54,13 +64,4 @@ test('all-zero', () => {
   expect(angka.toTerbilang('1000000000000000000')).toBe("satu quintiliun");
   expect(angka.toTerbilang('10000000000000000000')).toBe("sepuluh quintiliun");
   expect(angka.toTerbilang('100000000000000000000')).toBe("seratus quintiliun");
-  expect(angka.toTerbilang('1000000000000000000000')).toBe("satu sextiliun");
-  expect(angka.toTerbilang('10000000000000000000000')).toBe("sepuluh sextiliun");
-  expect(angka.toTerbilang('100000000000000000000000')).toBe("seratus sextiliun");
-  expect(angka.toTerbilang('1000000000000000000000000')).toBe("satu septiliun");
-  expect(angka.toTerbilang('10000000000000000000000000')).toBe("sepuluh septiliun");
-  expect(angka.toTerbilang('100000000000000000000000000')).toBe("seratus septiliun");
-  expect(angka.toTerbilang('1000000000000000000000000000')).toBe("satu oktiliun");
-  expect(angka.toTerbilang('10000000000000000000000000000')).toBe("sepuluh oktiliun");
-  expect(angka.toTerbilang('100000000000000000000000000000')).toBe("seratus oktiliun");
 });

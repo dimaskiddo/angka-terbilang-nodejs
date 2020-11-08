@@ -1,11 +1,12 @@
 {
   "name": "@dimaskiddo/angka-terbilang-nodejs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Angka Terbilang in NodeJS for Converting Decimal to an Indonesian Wording format",
   "main": "index.js",
   "scripts": {
-    "build": "browserify -t [ babelify --presets [ @babel/preset-env ] ] -t uglifyify index.js --standalone angka > index.min.js",
-    "test": "jest"
+    "test": "jest",
+    "minified": "browserify -t [ babelify --presets [ @babel/preset-env ] ] -t uglifyify index.js --standalone angka > index.min.js",
+    "build": "npm run test && npm run minified"
   },
   "repository": {
     "type": "git",

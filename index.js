@@ -2,29 +2,42 @@
 const arrAngka =  ['', 'satu', 'dua', 'tiga', 'empat', 'lima', 'enam', 'tujuh', 'delapan', 'sembilan']
 const arrSatuan = ['', 'ribu', 'juta', 'milyar', 'triliun', 'quadriliun', 'quintiliun', 'sextiliun', 'septiliun', 'oktiliun', 'noniliun', 'desiliun', 'undesiliun', 'duodesiliun', 'tredesiliun', 'quattuordesiliun', 'quindesiliun', 'sexdesiliun', 'septendesiliun', 'oktodesiliun', 'novemdesiliun', 'vigintiliun']
 
-// Hitung Panjang Array Satuan
-const lenSatuan = arrSatuan.length - 1
-
 // toTerbilang Function
-function toTerbilang(angka) {
-  // Definisi Variabel Hasil Konversi Terbilang
+function toTerbilang(strAngka) {
+  // Jika Inputan Bukan Angka Maka Return Error
+  if (isNaN(strAngka)) {
+    return 'Error, input is not a valid number!'
+  }
+
+  // Cari Panjang Angka String
+  const lenAngka = strAngka.length - 1
+
+  // Jika Panjang Angka Nol dan Angka Pertama adalah Nol Maka Proses Nol
+  if (lenAngka === 0 && Number(strAngka[0]) === 0) {
+    return 'nol'
+  }
+
+  // Jika Angka Over dari Satuan Maka Return Error
+  if ((lenAngka / 3) > arrSatuan.length) {
+    return "Error, number is to big!"
+  }
+
+  // Set Variabel Hasil Konversi
   let resTerbilang = ''
 
-  // Trim Inputan Angka
-  // dan Cari Panjang Angka String
-  let strAngka = String(angka).trim()
-  let lenAngka = strAngka.length - 1
-
-  // Set Counter Nol
+  // Set Penghitung Nol
   let cntZero = 0
 
   // Loop Angka String dan Konversi
-  for (let i=0; i <= lenAngka; i++) {    
+  for (let i=0; i <= lenAngka; i++) {
+    // Set Variable Sementara Hasil Konversi
+    let tmpTerbilang = ''
+
     // Cari Posisi Digit
     let posDigit = lenAngka - i
     let grpDigit = posDigit % 3
 
-    // Konversi Angka String ke Angka Int
+    // Konversi Angka String ke Angka Integer
     let intAngka = Number(strAngka[i])
 
     // Konversi Angka ke Bilangan
@@ -33,27 +46,27 @@ function toTerbilang(angka) {
         switch (grpDigit) {
           case 2:
             // Proses Ratusan
-            resTerbilang += 'seratus '
+            tmpTerbilang += 'seratus'
             break
 
           case 1:
-            // Konversi Angka String Selanjutnya ke Angka Int Selanjutnya
+            // Konversi Angka String Selanjutnya ke Angka Integer Selanjutnya
             let nextIntAngka = Number(strAngka[i+1])
 
             switch (nextIntAngka) {
               case 1:
                 // Proses Sebelas
-                resTerbilang += 'sebelas '
+                tmpTerbilang += 'sebelas'
                 break
 
               case 0:
                 // Proses Sepuluh
-                resTerbilang += 'sepuluh '
+                tmpTerbilang += 'sepuluh'
                 break
 
               default:
                 // Proses Belasan
-                resTerbilang += arrAngka[nextIntAngka] + ' belas '
+                tmpTerbilang += arrAngka[nextIntAngka] + ' belas'
                 break
             }
 
@@ -66,72 +79,75 @@ function toTerbilang(angka) {
             break
 
           case 0:
-            if ((intAngka == 1 && posDigit == 3) && (cntZero == 2 || lenAngka == 3)) {
+            if ((intAngka === 1 && posDigit === 3) && (cntZero === 2 || lenAngka === 3)) {
+              // Tambah Spasi
+              if (resTerbilang !== '') {
+                resTerbilang += ' '
+              }
+
               // Proses Seribu
-              resTerbilang += 'seribu '
+              resTerbilang += 'seribu'
 
               // Reset Penghitung Nol
               cntZero = 0
               continue
             } else {
               // Proses Satu
-              resTerbilang += arrAngka[intAngka] + ' '
+              tmpTerbilang += arrAngka[intAngka]
             }
         }
         break
 
       case 0:
-        if (i == lenAngka && lenAngka == 0) {
-          // Proses Nol
-          return 'nol'
-        }
-
         // Hitung Nol
         cntZero++
         break
       
       default:
         // Proses Angka
-        resTerbilang += arrAngka[intAngka] + ' '
+        tmpTerbilang += arrAngka[intAngka]
 
         switch (grpDigit) {
           case 2:
             // Proses Ratusan
-            resTerbilang += 'ratus '
+            tmpTerbilang += ' ratus'
             break
 
           case 1:
             // Proses Puluhan
-            resTerbilang += 'puluh '
+            tmpTerbilang += ' puluh'
             break
         }
         break
     }
 
-    // Konversi Satuan
-    if (grpDigit == 0) {
-      // Cari Posisi Satuan
-      let posSatuan = posDigit / 3
-
-      // Pastikan Satuan Tidak Out of Bound dari Array Satuan
-      if (posSatuan > lenSatuan) { 
-        // Kurangi Posisi Satuan dengan Panjangan Array Satuan
-        // Sehinga Menggunakan Satuan Awal
-        posSatuan %= lenSatuan
+    // Prepand Spasi
+    if (tmpTerbilang !== '') {
+      // Tambah Spasi      
+      if (resTerbilang !== '') {
+        resTerbilang += ' ' + tmpTerbilang
+      } else {
+        resTerbilang += tmpTerbilang
       }
+    }
 
-      if (cntZero < 3 || (cntZero == 3 && posSatuan == lenSatuan)) {
+    // Cari Posisi Satuan
+    let posSatuan = posDigit / 3
+
+    // Konversi Satuan
+    if (grpDigit === 0 && posSatuan !== 0) {
+      if (cntZero !== 3) {
         // Proses Satuan
-        resTerbilang += arrSatuan[posSatuan] + ' '
+        resTerbilang += ' ' + arrSatuan[posSatuan]
       }
 
       // Reset Pneghitung Nol
       cntZero = 0
     }
   }
-
+  
   // Trim Hasil Konversi dan Return
-  return resTerbilang.trim()
+  return resTerbilang
 }
 
 module.exports = {
