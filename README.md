@@ -87,7 +87,7 @@ Benchmark tools are provided by [Develoka Team](https://github.com/develoka)
 
 ### Benchmark Results
 
-Benchmark @ November 8th 2020 14:55
+Benchmark with NodeJS 10.18.0 @ November 8th 2020 14:55
 | Package                                  | Angka Ratusan Ribu | Angka Ratusan Juta | Angka Ratusan Milyar | Angka Ratusan Triliun |
 | ---------------------------------------- | ------------------ | ------------------ | -------------------- | --------------------- |
 | [@dimaskiddo/angka-terbilang-nodejs](https://github.com/dimaskiddo/angka-terbilang-nodejs) | 2,836,662 ops/sec  | 2,029,144 ops/sec  | 1,386,470 ops/sec    | 1,095,911 ops/sec     |
@@ -99,18 +99,16 @@ Benchmark @ November 8th 2020 14:55
 ### Benchmark Device
 
 ```
-Intel(R) Core(TM) i5-5250U CPU @ 1.60GHz
-CPU: 2 Core with Hypterthreading (4 vCPU)
+Operating System: MacOS High Sierra 10.13.6
+CPU Model: Intel(R) Core(TM) i5-5250U CPU @ 1.60GHz
+CPU Core: 2 Core with Hypterthreading (4 vCPU)
 RAM: 8 GB
 Disk Type: SSD
-
-Operating System: MacOS High Sierra 10.13.6
-NodeJS: 10.18.0
 ```
 
 ### Benchmark Notes
 
-The result might be different depending on Bechmark Device that used to run
+The result might be different depending on the undelying software or hardware that used to run benchmark
 
 ## Built With
 
@@ -122,5 +120,3 @@ The result might be different depending on Bechmark Device that used to run
 * **R. M. Dwi Rizki** - *Fungsional Test and Benchmarking* - [rmdwirizki](https://github.com/rmdwirizki)
 
 See also the list of [contributors](https://github.com/dimaskiddo/angka-terbilang-nodejs/contributors) who participated in this project
-
-```

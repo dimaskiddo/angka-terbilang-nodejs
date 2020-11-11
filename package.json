@@ -1,6 +1,6 @@
 {
   "name": "@dimaskiddo/angka-terbilang-nodejs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Angka Terbilang in NodeJS for Converting Decimal to an Indonesian Wording format",
   "main": "index.js",
   "scripts": {
